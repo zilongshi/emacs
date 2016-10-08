@@ -52,10 +52,6 @@
 ;; shell setting
 (load-file "~/.emacs.d/site-lisp/003-shell.el")
 
-;; specify a precise list of tags tables 
-;; (setq tags-table-list
-;;       '("~/emacs" "/usr/local/lib/emacs/src"))
-
 ;; flyspell setting
 ;; (dolist (hook '(text-mode-hook))
 ;;   (add-hook hook (lambda () (flyspell-mode 1))))
@@ -78,11 +74,6 @@
 	try-expand-line
 	try-complete-lisp-symbol-partially
 	try-complete-lisp-symbol))
-
-;; tabbar setting
-;; (load-file "~/.emacs.d/elpa/tabbar-20131106.1524/tabbar.el")
-;; (require 'tabbar)
-;; (tabbar-mode t)
 
 ;; ido setting
 (require 'ido)
@@ -116,20 +107,6 @@
 ;; copy line
 (load-file "~/.emacs.d/site-lisp/005-copy.el")
 
-;; iswitchb setting
-;; (iswitchb-mode 1)
-;; (setq iswitchb-buffer-ignore '("^ " "*Buffer"))
-;; (setq iswitchb-default-method 'samewindow)
-;; (defun iswitchb-local-keys ()
-;;   (mapc (lambda (K) 
-;; 	  (let* ((key (car K)) (fun (cdr K)))
-;; 	    (define-key iswitchb-mode-map (edmacro-parse-keys key) fun)))
-;; 	'(("<right>" . iswitchb-next-match)
-;; 	  ("<left>"  . iswitchb-prev-match)
-;; 	  ("<up>"    . ignore             )
-;; 	  ("<down>"  . ignore             ))))
-;; (add-hook 'iswitchb-define-mode-map-hook 'iswitchb-local-keys)
-
 ;; emacs outlook settin
 (load-file "~/.emacs.d/site-lisp/001-outlook.el")
 
@@ -140,8 +117,6 @@
 (ac-config-default)
 
 ;;; yasnippet setting
-;; (add-to-list 'load-path
-	     ;; "~/.emacs.d/elpa/yasnippet-20160924.2001")
 (require 'yasnippet)
 (yas-global-mode 1)
 (add-to-list 'yas/root-directory
@@ -158,25 +133,3 @@
 
 ;;; programming language mode settings
 (load-file "~/.emacs.d/site-lisp/012-programming-mode.el")
-
-;; ecb setting
-;; (require 'ecb)
-
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(comment-style (quote extra-line))
-;;  '(ecb-layout-name "left8")
-;;  '(ecb-options-version "2.40")
-;;  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
-;;  '(ecb-source-path (quote (("~/workspace" "workspace"))))
-;;  '(ecb-tip-of-the-day nil)
-;;  '(org-agenda-files nil))
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  )
