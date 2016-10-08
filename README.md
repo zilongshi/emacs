@@ -62,9 +62,9 @@ prepare for using those packages
 
  `cd cedet`
 
- ```
+```
  touch `find . -name Makefile`
- ```
+```
 
  `make`
  **or**
