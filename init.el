@@ -20,7 +20,7 @@
 (display-time-mode 1)
 ;;; (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
-
+(electric-pair-mode 1)
 
 ;;; High Light Setting
 (require 'hl-line)
@@ -85,7 +85,6 @@
 (load-file "~/.emacs.d/site-lisp/010-move.el")
 
 ;; undo tree setting
-;; (load-file "~/.emacs.d/elpa/undo-tree-20160922.853/undo-tree.el")
 (require 'undo-tree)
 (global-undo-tree-mode)
 
@@ -112,9 +111,9 @@
 
 ;;; use popup menu for yas-choose-value
 (require 'popup)
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20160827.649/dict")
-(ac-config-default)
+
+;;; company-mode setting
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;;; yasnippet setting
 (require 'yasnippet)

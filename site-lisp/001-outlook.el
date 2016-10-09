@@ -79,9 +79,9 @@
 		  (indent-region (region-beginning) (region-end) nil))))))
 
 ;;; Color-Theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/solarized-theme-20160901.334")
 (load-theme 'solarized-dark t)
 
+;;; Set by hand
 ;; (load-file "~/.emacs.d/site-lisp/color-theme-blackboard.el")
 ;; (eval-after-load "color-theme"
 ;;   '(progn
@@ -92,7 +92,7 @@
 ;; (setq color-theme-is-global t)
 ;; (color-theme-robin-hood)
 
-;; Powerline setting
+;;; Powerline setting
 (require 'powerline)
 (powerline-default-theme)
 
