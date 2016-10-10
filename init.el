@@ -22,6 +22,9 @@
 (setq display-time-day-and-date t)
 (electric-pair-mode 1)
 
+(require 'saveplace)
+(setq-default save-place t)
+
 ;;; High Light Setting
 (require 'hl-line)
 (global-hl-line-mode 1)
@@ -87,6 +90,15 @@
 ;; undo tree setting
 (require 'undo-tree)
 (global-undo-tree-mode)
+
+;; window-mode setting
+(require 'window-number)
+(autoload 'window-number-mode "window-number" t)
+(autoload 'window-number-meta-mode "window-number-meta" t)
+(window-number-mode 1)
+(window-number-meta-mode 1)
+(setq window-numbering-assign-func
+      (lambda () (when (equal (buffer-name) "*Calculator*") 9)))
 
 ;; linum setting
 (load-file "~/.emacs.d/site-lisp/007-linum.el")
