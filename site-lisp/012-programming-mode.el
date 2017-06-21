@@ -56,7 +56,7 @@
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 
 ;; common-lisp setting
-(add-to-list 'load-path "~/.emacs.d/elpa/slime-20161006.1520")
+(add-to-list 'load-path "~/.emacs.d/elpa/slime-20170511.1221")
 (require 'slime-autoloads)
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (slime-setup '(slime-fancy))
@@ -244,6 +244,14 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+
+;; go-mode settings
+;; (require 'company)                                   ; load company mode
+(require 'company-go)                                ; load company mode go backend
+(add-hook 'go-mode-hook 'company-mode)
+(add-hook 'go-mode-hook (lambda ()
+                          (set (make-local-variable 'company-backends) '(company-go))
+                          (company-mode)))
 
 (provide '013-programming-mode)
 ;;; 013-programming-mode.el ends here
