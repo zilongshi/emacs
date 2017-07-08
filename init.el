@@ -55,6 +55,9 @@
 
 (exec-path-from-shell-initialize)
 
+;; (global-auto-revert-mode t)
+(add-hook 'dired-mode-hook 'auto-revert-mode)
+
 ;; shell setting
 (load-file "~/.emacs.d/site-lisp/003-shell.el")
 
@@ -154,6 +157,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-revert-remote-files t)
  '(package-selected-packages
    (quote
     (exec-path-from-shell company-go go-mode window-number web-mode use-package undo-tree sws-mode solarized-theme smex slime shell-command react-snippets powerline popup markdown-mode lua-mode js2-mode jade-mode elpy company-irony bash-completion))))
