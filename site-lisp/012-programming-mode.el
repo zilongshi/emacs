@@ -56,7 +56,7 @@
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 
 ;; common-lisp setting
-(add-to-list 'load-path "~/.emacs.d/elpa/slime-20170511.1221")
+;; (add-to-list 'load-path "~/.emacs.d/elpa/slime-20171106.1331")
 (require 'slime-autoloads)
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (slime-setup '(slime-fancy))
@@ -90,11 +90,14 @@
 ;; Perl Tidy Elisp
 
 ;; markdown-mode setting
-;; (autoload 'markdown-mode "markdown-mode"
-;;   "Major mode for editing Markdown files" t)
-;; (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-;; (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-;; (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode"
+  "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
 ;; PDE setting
 ;; (add-to-list 'load-path "~/.emacs.d/pde")
@@ -201,7 +204,7 @@
             (indent-according-to-mode))
           (forward-line))
         (run-with-timer 0.5 nil '(lambda(ovl)
-                                   (delete-overlay ovl)) ovl)))))
+                                   (delete-overlay ovl)))))))
 
 (defun my-js2-mode-hook ()
   (require 'js)
@@ -236,14 +239,6 @@
 (require 'sws-mode)
 (require 'jade-mode)
 (add-to-list 'auto-mode-alist '("\\.styl\\'" . sws-mode))
-
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
 
 ;; go-mode settings
 ;; (require 'company)                                   ; load company mode

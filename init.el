@@ -37,21 +37,22 @@
 (add-to-list 'load-path 
 	     "/usr/share/emacs/site-lisp")
 
-;; (setq load-path (cons (expand-file-name "~/.emacs.d/elpa") load-path))
+(setq load-path (cons (expand-file-name "~/.emacs.d/elpa") load-path))
 
 ;;; use ELPA package management 
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+;; (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+;;                     (not (gnutls-available-p))))
+;;        (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
+;;   (add-to-list 'package-archives (cons "melpa" url) t))
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
 
-(eval-when-compile
-  (require 'use-package))
-(require 'diminish)                ;; if you use :diminish
-(require 'bind-key)                ;; if you use any :bind variant
+;; (eval-when-compile
+;;   (require 'use-package))
+;; (require 'diminish)                ;; if you use :diminish
+;; (require 'bind-key)                ;; if you use any :bind variant
 
 (exec-path-from-shell-initialize)
 
@@ -160,7 +161,7 @@
  '(auto-revert-remote-files t)
  '(package-selected-packages
    (quote
-    (exec-path-from-shell company-go go-mode window-number web-mode use-package undo-tree sws-mode solarized-theme smex slime shell-command react-snippets powerline popup markdown-mode lua-mode js2-mode jade-mode elpy company-irony bash-completion))))
+    (exec-path-from-shell company-go go-mode window-number web-mode undo-tree sws-mode solarized-theme smex slime shell-command react-snippets powerline popup markdown-mode lua-mode js2-mode jade-mode elpy company-irony bash-completion))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
