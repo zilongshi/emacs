@@ -125,7 +125,7 @@
 ;; enable Elpy
 (elpy-enable)
 (setq elpy-rpc-backend "jedi")
-(elpy-use-ipython)
+;; (elpy-use-ipython)
 
 (setq
  python-shell-interpreter "ipython"
